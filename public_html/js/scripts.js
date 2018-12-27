@@ -4,13 +4,13 @@
  * and open the template in the editor.
  */
 //variabili globali
-var num1 ="";
-var num2 ="";
+var num1 = "";
+var num2 = "";
 var risultato;
 //inizializziamo la variabile
 var operazione = "";
 var okDati;
-var tasto;
+var memoria;
 
 function isVuota(testo) {
 
@@ -60,19 +60,6 @@ function faseOutput() {
 
 }
 
-function somma() {
-
-    faseInput();
-
-    if (okDati) {
-        risultato = num1 + num2;
-        totale = totale + risultato;
-
-        faseOutput();
-    }
-
-}
-
 
 function calcola(op) {
     //faseInput();
@@ -80,123 +67,109 @@ function calcola(op) {
     okDati = true;
     if (okDati) {
         //valuto se sono numeri
-        if (op == "0") {
+        if (op === "0") {
             operazione = operazione + op;
             num1 = num1 + op;
         }
-        if (op == "1") {
+        if (op === "1") {
             operazione = operazione + op;
             num1 = num1 + op;
         }
-        if (op == "2") {
+        if (op === "2") {
             operazione = operazione + op;
             num1 = num1 + op;
         }
-        if (op == "3") {
+        if (op === "3") {
             operazione = operazione + op;
             num1 = num1 + op;
         }
-        if (op == "4") {
+        if (op === "4") {
             operazione = operazione + op;
             num1 = num1 + op;
         }
-        if (op == "5") {
+        if (op === "5") {
             operazione = operazione + op;
             num1 = num1 + op;
         }
-        if (op == "6") {
+        if (op === "6") {
             operazione = operazione + op;
             num1 = num1 + op;
         }
-        if (op == "7") {
+        if (op === "7") {
             operazione = operazione + op;
             num1 = num1 + op;
         }
-        if (op == "8") {
+        if (op === "8") {
             operazione = operazione + op;
             num1 = num1 + op;
         }
-        if (op == "9") {
+        if (op === "9") {
             operazione = operazione + op;
             num1 = num1 + op;
         }
         //valuto se sono operatori o virgola
-        if (op == ".") {
+        if (op === ".") {
             operazione = operazione + op;
             num1 = num1 + op;
         }
 
-
-
-        if (op == "+") {
+        if (op === "+") {
             operazione = operazione + " +<br/>";
-
-
             if (isVuota(num2)) {
+                num2 = parseFloat(num1);
+                num1 = "";
+            } else {
                 num2 = num2 + parseFloat(num1);
                 num1 = "";
-                operazione
-            } else {
-                num2 = parseFloat(num1);
-                num1 = "";
+                operazione = operazione + num2;
             }
             faseOutput();
-            operazione = "";
         }
 
-        if (op == "-"){
+        if (op == "-") {
             operazione = operazione + " -<br/>";
-
-
             if (isVuota(num2)) {
+                num2 = parseFloat(num1);
+                num1 = "";
+            } else {
                 num2 = num2 - parseFloat(num1);
                 num1 = "";
-                operazione
-            } else {
-                num2 = parseFloat(num1);
-                num1 = "";
+                operazione = operazione + num2;
             }
             faseOutput();
-            operazione = "";
         }
 
-        if (op == "*"){
+        if (op === "*") {
             operazione = operazione + " *<br/>";
-
-
             if (isVuota(num2)) {
+                num2 = parseFloat(num1);
+                num1 = "";
+            } else {
                 num2 = num2 * parseFloat(num1);
                 num1 = "";
-                operazione
-            } else {
-                num2 = parseFloat(num1);
-                num1 = "";
+                operazione = operazione + num2;
             }
             faseOutput();
-            operazione = "";
         }
 
-        if (op == "/"){
+        if (op === "/") {
             operazione = operazione + " /<br/>";
-
-
             if (isVuota(num2)) {
-                num2 = num2 / parseFloat(num1);
-                num1 = "";
-                operazione
-            } else {
                 num2 = parseFloat(num1);
                 num1 = "";
+            } else {
+                num2 = num2 * parseFloat(num1);
+                num1 = "";
+                operazione = operazione + num2;
             }
             faseOutput();
-            operazione = "";
         }
 
-        if (op == "=")
+        if (op === "=")
             risultato = num1 + num2;
 
 
-        
+
 
         faseOutput();
     }
